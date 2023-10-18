@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace RecipeGenius
 {
-    public partial class Form2 : Form
+    public partial class RecipeShow : Form
     {
-        public Form2()
+        public RecipeShow()
         {
             InitializeComponent();
         }
+
+
     }
 }
