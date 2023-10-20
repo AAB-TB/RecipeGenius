@@ -1,6 +1,6 @@
 ﻿namespace RecipeGenius
 {
-    partial class Form4
+    partial class AdminPage
     {
         /// <summary>
         /// Required designer variable.
@@ -102,7 +102,7 @@
             aboutUsButton.Text = "About Us";
             aboutUsButton.UseVisualStyleBackColor = true;
             // 
-            // Form4
+            // AdminPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -114,8 +114,8 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(textBox1);
             Controls.Add(searchButton);
-            Name = "Form4";
-            Text = "Form4";
+            Name = "AdminPage";
+            Text = "AdminPage";
             ResumeLayout(false);
             PerformLayout();
         }

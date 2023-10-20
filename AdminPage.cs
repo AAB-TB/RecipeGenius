@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RecipeGenius
 {
-    public partial class Form4 : Form
+    public partial class AdminPage : Form
     {
-        public Form4()
+        public AdminPage()
         {
             InitializeComponent();
         }
