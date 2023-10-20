@@ -12,7 +12,6 @@ namespace RecipeGenius
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new RecipeShow());
-            Application.Run(new Form5());
         }
     }
 }
