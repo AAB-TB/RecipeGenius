@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Meenakshi\\OneDrive\\Desktop\\RecipeGenius\\RecipeGenius.csproj": {}
+    "C:\\Visual studio projekt\\Windowsforms projekt\\RecipeGenius\\RecipeGenius.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Meenakshi\\OneDrive\\Desktop\\RecipeGenius\\RecipeGenius.csproj": {
+    "C:\\Visual studio projekt\\Windowsforms projekt\\RecipeGenius\\RecipeGenius.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Meenakshi\\OneDrive\\Desktop\\RecipeGenius\\RecipeGenius.csproj",
+        "projectUniqueName": "C:\\Visual studio projekt\\Windowsforms projekt\\RecipeGenius\\RecipeGenius.csproj",
         "projectName": "RecipeGenius",
-        "projectPath": "C:\\Users\\Meenakshi\\OneDrive\\Desktop\\RecipeGenius\\RecipeGenius.csproj",
-        "packagesPath": "C:\\Users\\Meenakshi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Meenakshi\\OneDrive\\Desktop\\RecipeGenius\\obj\\",
+        "projectPath": "C:\\Visual studio projekt\\Windowsforms projekt\\RecipeGenius\\RecipeGenius.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Visual studio projekt\\Windowsforms projekt\\RecipeGenius\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Meenakshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

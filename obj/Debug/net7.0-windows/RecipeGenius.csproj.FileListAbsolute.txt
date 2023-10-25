@@ -18,3 +18,24 @@ C:\Users\Meenakshi\OneDrive\Desktop\RecipeGenius\obj\Debug\net7.0-windows\Recipe
 C:\Users\Meenakshi\OneDrive\Desktop\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.genruntimeconfig.cache
 C:\Users\Meenakshi\OneDrive\Desktop\RecipeGenius\obj\Debug\net7.0-windows\ref\RecipeGenius.dll
 C:\Users\Meenakshi\OneDrive\Desktop\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.AdminPage.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\bin\Debug\net7.0-windows\RecipeGenius.exe
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\bin\Debug\net7.0-windows\RecipeGenius.deps.json
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\bin\Debug\net7.0-windows\RecipeGenius.runtimeconfig.json
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\bin\Debug\net7.0-windows\RecipeGenius.dll
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\bin\Debug\net7.0-windows\RecipeGenius.pdb
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.AboutUs.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.AdminPage.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.Form1.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.Form5.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.Properties.Resources.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.RecipeShow.resources
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.csproj.GenerateResource.cache
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.GeneratedMSBuildEditorConfig.editorconfig
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.AssemblyInfoInputs.cache
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.AssemblyInfo.cs
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.csproj.CoreCompileInputs.cache
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.dll
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\refint\RecipeGenius.dll
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.pdb
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\RecipeGenius.genruntimeconfig.cache
+C:\Visual studio projekt\Windowsforms projekt\RecipeGenius\obj\Debug\net7.0-windows\ref\RecipeGenius.dll

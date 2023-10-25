@@ -30,11 +30,14 @@
         {
             searchButton = new Button();
             textBox1 = new TextBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             addButton = new Button();
             redigeraButton = new Button();
             raderaButton = new Button();
             aboutUsButton = new Button();
+            dataGridView1 = new DataGridView();
+            Title = new DataGridViewTextBoxColumn();
+            category = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // searchButton
@@ -54,13 +57,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(783, 44);
             textBox1.TabIndex = 1;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Location = new Point(70, 115);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(883, 387);
-            flowLayoutPanel1.TabIndex = 2;
             // 
             // addButton
             // 
@@ -102,20 +98,46 @@
             aboutUsButton.Text = "About Us";
             aboutUsButton.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Title, category });
+            dataGridView1.Location = new Point(70, 115);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(883, 387);
+            dataGridView1.TabIndex = 7;
+            // 
+            // Title
+            // 
+            Title.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Title.HeaderText = "Title";
+            Title.MinimumWidth = 6;
+            Title.Name = "Title";
+            // 
+            // category
+            // 
+            category.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            category.HeaderText = "Category";
+            category.MinimumWidth = 6;
+            category.Name = "category";
+            // 
             // AdminPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1142, 576);
+            Controls.Add(dataGridView1);
             Controls.Add(aboutUsButton);
             Controls.Add(raderaButton);
             Controls.Add(redigeraButton);
             Controls.Add(addButton);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(textBox1);
             Controls.Add(searchButton);
             Name = "AdminPage";
             Text = "AdminPage";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,10 +146,12 @@
 
         private Button searchButton;
         private TextBox textBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Button addButton;
         private Button redigeraButton;
         private Button raderaButton;
         private Button aboutUsButton;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Title;
+        private DataGridViewTextBoxColumn category;
     }
 }
