@@ -8,6 +8,7 @@ namespace RecipeGenius
 {
     public class AddRecipe
     {
+        //Title for recipe
         public string RecipeTitle { get; set; }
         public string RecipeTime { get; set; }
         public string NumberOfServing { get; set; }
