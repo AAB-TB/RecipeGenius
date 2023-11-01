@@ -8,6 +8,7 @@ namespace RecipeGenius
         private List<string[]> userDataList;
         private List<string[]> displayedUserData;
         private List<int> searchResultsIndices;
+        FilePaths filePaths = new FilePaths();
         public Form1()
         {
             InitializeComponent();
@@ -16,7 +17,7 @@ namespace RecipeGenius
         }
         private List<string[]> LoadUserData()
         {
-            string filePath = "C:\\Jensen Azure programering\\Fixaskiten\\RecipeGenius\\RecipeList.txt";
+            string filePath = filePaths.RecipieList;
             List<string[]> data = new List<string[]>();
 
             try
@@ -44,6 +45,8 @@ namespace RecipeGenius
             catch (Exception ex)
             {
                 Reg.Text = ($"An error occurred while loading data: {ex.Message}");
+                filePaths.LogErrorToFile(ex.Message);
+
             }
 
             return data;
@@ -129,9 +132,14 @@ namespace RecipeGenius
             {
                 // If an error occurs while reading the file, display an error message in the "Reg" label.
                 Reg.Text = ($"An error occurred: {ex.Message}");
+                
+                filePaths.LogErrorToFile(ex.Message);
             }
             // If no valid credentials are found or an error occurred, return false.
             return false;
         }
+        
+
+        
     }
 }
