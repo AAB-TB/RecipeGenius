@@ -19,7 +19,7 @@ namespace RecipeGenius
         public RecipeShow()
         {
             InitializeComponent();
-            AllRecepie = filePaths.LoadCsvData();
+            AllRecepie = filePaths.LoadRecipiesData();
             
 
         }

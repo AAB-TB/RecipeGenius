@@ -34,6 +34,8 @@
             SignInBtn = new Button();
             Reg = new Label();
             aboutUsOpen = new Button();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -41,7 +43,7 @@
             listBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 30;
-            listBox1.Location = new Point(80, 126);
+            listBox1.Location = new Point(72, 165);
             listBox1.Margin = new Padding(3, 2, 3, 2);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(686, 274);
@@ -99,12 +101,31 @@
             aboutUsOpen.UseVisualStyleBackColor = true;
             aboutUsOpen.Click += aboutUsOpen_Click;
             // 
+            // searchTextBox
+            // 
+            searchTextBox.Location = new Point(242, 132);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(333, 23);
+            searchTextBox.TabIndex = 6;
+            // 
+            // searchButton
+            // 
+            searchButton.Location = new Point(593, 129);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(85, 29);
+            searchButton.TabIndex = 7;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(911, 462);
+            Controls.Add(searchButton);
+            Controls.Add(searchTextBox);
             Controls.Add(aboutUsOpen);
             Controls.Add(Reg);
             Controls.Add(SignInBtn);
@@ -126,5 +147,7 @@
         private Button SignInBtn;
         private Label Reg;
         private Button aboutUsOpen;
+        private TextBox searchTextBox;
+        private Button searchButton;
     }
 }

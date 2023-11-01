@@ -20,8 +20,8 @@ namespace RecipeGenius
     {
         FilePaths filePaths = new FilePaths();
 
-        
-        
+
+
         public List<AddRecipe> recipeList = new List<AddRecipe>();
         AddRecipe addRecipe = new AddRecipe();
         public AdminNewForm()
@@ -103,6 +103,11 @@ namespace RecipeGenius
 
             // Search for and filter the data based on the specified column and search term.
             List<string> filteredData = SearchByColumnValue(searchTerm, columnToSearch);
+            if (filteredData.Count == 0)
+            {
+                filteredData = SearchByColumnValue(searchTerm, 3);
+            }
+            // List<string> filteredData = SearchByColumnValue(searchTerm, 3);
 
             // Display the filtered data in the DataGridView.
             DisplayFilteredData(filteredData);
@@ -268,7 +273,7 @@ namespace RecipeGenius
             {
                 string[] columns = row.Split(',');
 
-                if (columns.Length > columnToSearch && columns[columnToSearch] == searchTerm)
+                if (columns.Length > columnToSearch && columns[columnToSearch].ToLower() == searchTerm.ToLower())
                 {
                     filteredData.Add(row);
                 }
