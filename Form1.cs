@@ -132,14 +132,17 @@ namespace RecipeGenius
             {
                 // If an error occurs while reading the file, display an error message in the "Reg" label.
                 Reg.Text = ($"An error occurred: {ex.Message}");
-                
+
                 filePaths.LogErrorToFile(ex.Message);
             }
             // If no valid credentials are found or an error occurred, return false.
             return false;
         }
-        
 
-        
+        private void aboutUsOpen_Click(object sender, EventArgs e)
+        {
+            AboutUs aboutUs = new AboutUs();
+            aboutUs.Show();
+        }
     }
 }
