@@ -1,3 +1,2 @@
-Köttbullar,30 min,2,kött,"500 g köttfärs
-2 ägg
-","blanda allt och stek."
+Köttbullar,25 min,2,kött,"500 g köttfärs
+2 ägg","blanda allt och stek."

@@ -18,14 +18,16 @@ namespace RecipeGenius
 {
     public partial class AdminNewForm : Form
     {
-        string recipeFile = "C:\\Jensen Azure programering\\Fixaskiten\\RecipeGenius\\Recipelist.txt";
+        FilePaths filePaths = new FilePaths();
 
+        
+        
         public List<AddRecipe> recipeList = new List<AddRecipe>();
         AddRecipe addRecipe = new AddRecipe();
         public AdminNewForm()
         {
             InitializeComponent();
-            LoadCsvData(recipeFile);
+            LoadCsvData(filePaths.RecipieFile);
 
         }
 
@@ -55,9 +57,9 @@ namespace RecipeGenius
         }
 
 
-        public void SaveRecipeToFile()
+        public void SaveRecipeToFile(string file)
         {
-            File.AppendAllLines(recipeFile, recipeList.Select(recipeList => recipeList.ToCsv()));
+            File.AppendAllLines(file, recipeList.Select(recipeList => recipeList.ToCsv()));
         }
         //**************************ADD BUTTON***********************************************************     
         private void button1_Click(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace RecipeGenius
             };
 
             recipeList.Add(newRecipe);
-            SaveRecipeToFile();
+            SaveRecipeToFile(filePaths.RecipieFile);
             ClearTextBoxes();
 
             MessageBox.Show("Content added successfully.");
@@ -134,7 +136,7 @@ namespace RecipeGenius
             indexRow = dataGridView1.CurrentCell.RowIndex;
             if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
             {
-                DeleteRowFromCsv(indexRow, recipeFile);
+                DeleteRowFromCsv(indexRow, filePaths.RecipieFile);
 
                 dataGridView1.Rows.RemoveAt(indexRow);
 
@@ -239,7 +241,7 @@ namespace RecipeGenius
 
         public void UpdateCsvData(int rowIndex)
         {
-            List<string> data = ReadCsvFile(recipeFile);
+            List<string> data = ReadCsvFile(filePaths.RecipieFile);
             if (rowIndex >= 0 && rowIndex < data.Count)
             {
                 List<string> updatedRow = new List<string>
@@ -254,12 +256,12 @@ namespace RecipeGenius
 
                 data[rowIndex] = string.Join(",", updatedRow);
             }
-            File.WriteAllLines(recipeFile, data);
+            File.WriteAllLines(filePaths.RecipieFile, data);
         }
 
         private List<string> SearchByColumnValue(string searchTerm, int columnToSearch)
         {
-            List<string> data = ReadCsvFile(recipeFile);
+            List<string> data = ReadCsvFile(filePaths.RecipieFile);
             List<string> filteredData = new List<string>();
 
             foreach (string row in data)
