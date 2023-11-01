@@ -10,6 +10,7 @@ namespace RecipeGenius
     {
         //Title for recipe
         public string RecipeTitle { get; set; }
+        // Title for Recipie time
         public string RecipeTime { get; set; }
         public string NumberOfServing { get; set; }
         public string Category { get; set; }
