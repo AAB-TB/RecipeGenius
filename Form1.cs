@@ -105,7 +105,7 @@ namespace RecipeGenius
         private bool CheckCredentials(string enteredUserName, string enteredPassword)
         {
             // Specify the path to the file that stores the admin credentials.
-            string filePath = @"C:\Jensen Azure programering\Fixaskiten\RecipeGenius\Admin.txt";
+            string filePath = filePaths.AdminLoggIn;
 
             try
             {

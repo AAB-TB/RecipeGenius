@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius.csproj": {}
+    "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj": {}
   },
   "projects": {
-    "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius.csproj": {
+    "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius.csproj",
+        "projectUniqueName": "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj",
         "projectName": "RecipeGenius",
-        "projectPath": "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\obj\\",
+        "projectPath": "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj",
+        "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
+        "outputPath": "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
