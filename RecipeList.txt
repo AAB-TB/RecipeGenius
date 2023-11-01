@@ -1,2 +1,12 @@
-Köttbullar,25 min,2,kött,"500 g köttfärs
-2 ägg","blanda allt och stek."
+Pasta Bolognese,40 min,4,Pasta,"4 dl pasta
+1 gul lök
+250g köttfärs
+1 morot
+1 burk krossade tomater
+salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
+Pasta Bolognese,40 min,4,Pasta,"4 dl pasta
+1 gul lök
+250g köttfärs
+1 morot
+1 burk krossade tomater
+salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"

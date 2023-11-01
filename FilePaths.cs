@@ -31,7 +31,7 @@ namespace RecipeGenius
                 MessageBox.Show("An error occurred while writing to the log file: " + ex.Message);
             }
         }
-        public List<string[]> LoadCsvData()
+        public List<string[]> LoadRecipiesData()
         {
             List<string[]> data = new List<string[]>();
             int i = 0;

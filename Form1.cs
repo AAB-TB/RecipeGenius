@@ -14,7 +14,7 @@ namespace RecipeGenius
         {
             InitializeComponent();
             //userDataList = LoadUserData();
-            userDataList = filePaths.LoadCsvData();
+            userDataList = filePaths.LoadRecipiesData();
             PopulateListBox();
         }
 
@@ -125,11 +125,47 @@ namespace RecipeGenius
         {
             if (this.listBox1.SelectedItem != null)
             {
-                RecipeShow recipeShow  = new RecipeShow();
+                RecipeShow recipeShow = new RecipeShow();
 
-                recipeShow.PopulateRecipe(this.listBox1.SelectedItem.ToString());  
+                recipeShow.PopulateRecipe(this.listBox1.SelectedItem.ToString());
 
                 recipeShow.Show();
+            }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            SearchRecipes searchRecipes = new SearchRecipes();
+
+            searchRecipes.Search(searchTextBox.Text);
+
+            Reg.Text = "";
+            // Loop through the userDataList and add each element to the ListBox.
+            if (searchRecipes.Items.Count() > 0)
+            {
+                listBox1.Items.Clear();
+                foreach (string[] user in searchRecipes.Items)
+                {
+                    // Join the parts of the user array into a single string to display in the ListBox.
+                    string userString = string.Join(", ", user);
+
+                    if (user.Length > 0)
+                    {
+                        // Add the first element of the user array to the ListBox.
+                        listBox1.Items.Add(user[0]);
+
+                    }
+                }
+            }
+            else if (searchTextBox.Text.Length == 0)
+            {
+                PopulateListBox();
+            }
+            else
+            {
+                Reg.Text = ($"We didn´t find a recipe with that title or category");
+
+
             }
         }
     }
