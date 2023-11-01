@@ -40,39 +40,40 @@
             // 
             listBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 45;
-            listBox1.Location = new Point(115, 210);
-            listBox1.Margin = new Padding(4);
+            listBox1.ItemHeight = 30;
+            listBox1.Location = new Point(80, 126);
+            listBox1.Margin = new Padding(3, 2, 3, 2);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(978, 499);
+            listBox1.Size = new Size(686, 274);
             listBox1.TabIndex = 0;
+            listBox1.MouseDoubleClick += listBox1_MouseDoubleClick;
             // 
             // UserName
             // 
             UserName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            UserName.Location = new Point(131, 54);
-            UserName.Margin = new Padding(4);
+            UserName.Location = new Point(92, 32);
+            UserName.Margin = new Padding(3, 2, 3, 2);
             UserName.Name = "UserName";
-            UserName.Size = new Size(383, 44);
+            UserName.Size = new Size(269, 32);
             UserName.TabIndex = 1;
             // 
             // UserPassword
             // 
             UserPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            UserPassword.Location = new Point(558, 54);
-            UserPassword.Margin = new Padding(4);
+            UserPassword.Location = new Point(391, 32);
+            UserPassword.Margin = new Padding(3, 2, 3, 2);
             UserPassword.Name = "UserPassword";
             UserPassword.PasswordChar = '*';
-            UserPassword.Size = new Size(383, 44);
+            UserPassword.Size = new Size(269, 32);
             UserPassword.TabIndex = 2;
             // 
             // SignInBtn
             // 
             SignInBtn.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            SignInBtn.Location = new Point(1041, 54);
-            SignInBtn.Margin = new Padding(4);
+            SignInBtn.Location = new Point(729, 32);
+            SignInBtn.Margin = new Padding(3, 2, 3, 2);
             SignInBtn.Name = "SignInBtn";
-            SignInBtn.Size = new Size(141, 49);
+            SignInBtn.Size = new Size(99, 29);
             SignInBtn.TabIndex = 3;
             SignInBtn.Text = "Log in";
             SignInBtn.UseVisualStyleBackColor = true;
@@ -81,19 +82,18 @@
             // Reg
             // 
             Reg.AutoSize = true;
-            Reg.Location = new Point(198, 139);
-            Reg.Margin = new Padding(4, 0, 4, 0);
+            Reg.Location = new Point(139, 83);
             Reg.Name = "Reg";
-            Reg.Size = new Size(0, 25);
+            Reg.Size = new Size(0, 15);
             Reg.TabIndex = 4;
             // 
             // aboutUsOpen
             // 
             aboutUsOpen.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            aboutUsOpen.Location = new Point(1120, 210);
-            aboutUsOpen.Margin = new Padding(4);
+            aboutUsOpen.Location = new Point(784, 126);
+            aboutUsOpen.Margin = new Padding(3, 2, 3, 2);
             aboutUsOpen.Name = "aboutUsOpen";
-            aboutUsOpen.Size = new Size(141, 49);
+            aboutUsOpen.Size = new Size(99, 29);
             aboutUsOpen.TabIndex = 5;
             aboutUsOpen.Text = "About Us";
             aboutUsOpen.UseVisualStyleBackColor = true;
@@ -101,17 +101,17 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1301, 770);
+            ClientSize = new Size(911, 462);
             Controls.Add(aboutUsOpen);
             Controls.Add(Reg);
             Controls.Add(SignInBtn);
             Controls.Add(UserPassword);
             Controls.Add(UserName);
             Controls.Add(listBox1);
-            Margin = new Padding(4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

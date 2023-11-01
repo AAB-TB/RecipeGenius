@@ -1,16 +1,20 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RecipeGenius
 {
     public class FilePaths
     {
-        public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\FelLogg.txt";
-        public string RecipieList { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipieList.txt";
-        public string AdminLoggIn { get; } = @"C:\Object oriented Programming\RecipeGenius\RecipeGenius\RecipeGenius\Admin.txt";
+        public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\FelLogg.txt";
+        public string RecipieFile { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeList.txt";
+        public string AdminLoggIn { get; } = @"C:\Object oriented Programming\RecipeGenius\Admin.txt";
 
         public void LogErrorToFile(string errorMessage)
         {
@@ -26,6 +30,43 @@ namespace RecipeGenius
                 // Handle any errors that may occur while writing to the log file.
                 MessageBox.Show("An error occurred while writing to the log file: " + ex.Message);
             }
+        }
+        public List<string[]> LoadCsvData()
+        {
+            List<string[]> data = new List<string[]>();
+            int i = 0;
+            if (File.Exists(RecipieFile))
+            {
+                
+                using (TextFieldParser parser = new TextFieldParser(RecipieFile))
+                {
+                    parser.TextFieldType = FieldType.Delimited;
+                    parser.SetDelimiters(","); // Assuming your CSV uses comma as a delimiter
+
+                    while (!parser.EndOfData)
+                    {
+                        string[] fields = parser.ReadFields();
+                        i++;
+                        if (fields.Length == 6)
+                        {
+                            // Add the valid user data to the 'data' list.
+                            data.Add(fields); // Adding arrays to the data list. 
+                        }
+                        else
+                        {
+                            LogErrorToFile($"Wrong number of fields in {RecipieFile} on row {i}");
+                        }
+                    }
+                    
+                    
+                }
+            }
+            else
+            {
+               
+                LogErrorToFile($"The recepie data file was not found {RecipieFile}");
+            }
+            return data;
         }
     }
 }
