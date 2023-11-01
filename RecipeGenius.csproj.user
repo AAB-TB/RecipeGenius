@@ -5,10 +5,7 @@
     <Compile Update="AboutUs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form5.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="AdminPage.cs">
+    <Compile Update="AdminNewForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form1.cs">
