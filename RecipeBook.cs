@@ -10,7 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RecipeGenius
 {
-    public class FilePaths
+    public class RecipeBook
     {
         public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\FelLogg.txt";
         public string RecipieFile { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeList.txt";

@@ -18,7 +18,7 @@ namespace RecipeGenius
 {
     public partial class AdminNewForm : Form
     {
-        FilePaths filePaths = new FilePaths();
+        RecipeBook recipeBook = new RecipeBook();
 
         List<string[]> Recipies = new List<string[]>();
 
@@ -30,8 +30,8 @@ namespace RecipeGenius
         public AdminNewForm()
         {
             InitializeComponent();
-            LoadCsvData(filePaths.RecipieFile);
-            Recipies = filePaths.LoadRecipiesData();
+            LoadCsvData(recipeBook.RecipieFile);
+            Recipies = recipeBook.LoadRecipiesData();
         }
 
         int indexRow;
@@ -83,15 +83,15 @@ namespace RecipeGenius
                 };
 
                 recipeList.Add(newRecipe);
-                SaveRecipeToFile(filePaths.RecipieFile);
+                SaveRecipeToFile(recipeBook.RecipieFile);
                 ClearTextBoxes();
-                Recipies = filePaths.LoadRecipiesData();
+                Recipies = recipeBook.LoadRecipiesData();
 
                 MessageBox.Show("Content added successfully.");
             }
             else
             {
-                filePaths.LogErrorToFile("Recipe title already exists, user have to change the title for the new recipe.");
+                recipeBook.LogErrorToFile("Recipe title already exists, user have to change the title for the new recipe.");
                 MessageBox.Show("Recipe title already exists, Change the title.");
             }
 
@@ -143,7 +143,7 @@ namespace RecipeGenius
                 newDataRow.Cells[5].Value = richTextBox2.Text;
 
                 UpdateCsvData(indexRow);
-                LoadCsvData(filePaths.RecipieFile);
+                LoadCsvData(recipeBook.RecipieFile);
                 //MessageBox.Show("Updated");
 
                 ClearTextBoxes();
@@ -157,9 +157,9 @@ namespace RecipeGenius
             var recipieToDelete = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
             Recipies.Remove(recipieToDelete);
 
-            filePaths.AllRecipies = Recipies;
+            recipeBook.AllRecipies = Recipies;
 
-            filePaths.SaveRecipieData();
+            recipeBook.SaveRecipieData();
 
             //indexRow = dataGridView1.CurrentCell.RowIndex;
             //if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
@@ -172,7 +172,7 @@ namespace RecipeGenius
             //    MessageBox.Show("Content deleted successfully.");
 
             //}
-            LoadCsvData(filePaths.RecipieFile);
+            LoadCsvData(recipeBook.RecipieFile);
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
@@ -258,8 +258,8 @@ namespace RecipeGenius
         {
             var recipieToModify = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
             Recipies.Remove(recipieToModify);
-            filePaths.AllRecipies = Recipies;
-            filePaths.SaveRecipieData();
+            recipeBook.AllRecipies = Recipies;
+            recipeBook.SaveRecipieData();
         }
 
         public void UpdateCsvData(int rowIndex)
@@ -274,12 +274,12 @@ namespace RecipeGenius
                 recipieToModify[4] = richTextBox1.Text;
                 recipieToModify[5] = richTextBox1.Text;
 
-                filePaths.AllRecipies = Recipies;
-                filePaths.SaveRecipieData();
+                recipeBook.AllRecipies = Recipies;
+                recipeBook.SaveRecipieData();
             }
             else
             {
-                filePaths.LogErrorToFile($"Recipie key '{RecipieKey}' could not be found in '{filePaths.RecipieFile}'.");
+                recipeBook.LogErrorToFile($"Recipie key '{RecipieKey}' could not be found in '{recipeBook.RecipieFile}'.");
             }
 
         }
@@ -296,10 +296,14 @@ namespace RecipeGenius
                 dataGridView1.Rows.Add(row);
             }
         }
+        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 form1 = new Form1();
+            form1.Show();
 
-
-
-
+        }
     }
 }
 

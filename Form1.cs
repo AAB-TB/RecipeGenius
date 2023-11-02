@@ -6,18 +6,15 @@ namespace RecipeGenius
     public partial class Form1 : Form
     {
         private List<string[]> userDataList;
-        private List<string[]> displayedUserData;
-        private List<int> searchResultsIndices;
-        FilePaths filePaths = new FilePaths();
+
+        RecipeBook recipeBook = new RecipeBook();
         public static string? titel { get; set; }
         public Form1()
         {
             InitializeComponent();
-            //userDataList = LoadUserData();
-            userDataList = filePaths.LoadRecipiesData();
+            userDataList = recipeBook.LoadRecipiesData();
             PopulateListBox();
         }
-
 
         private void PopulateListBox()
         {
@@ -81,7 +78,7 @@ namespace RecipeGenius
         private bool CheckCredentials(string enteredUserName, string enteredPassword)
         {
             // Specify the path to the file that stores the admin credentials.
-            string filePath = filePaths.AdminLoggIn;
+            string filePath = recipeBook.AdminLoggIn;
 
             try
             {
@@ -109,7 +106,7 @@ namespace RecipeGenius
                 // If an error occurs while reading the file, display an error message in the "Reg" label.
                 Reg.Text = ($"An error occurred: {ex.Message}");
 
-                filePaths.LogErrorToFile(ex.Message);
+                recipeBook.LogErrorToFile(ex.Message);
             }
             // If no valid credentials are found or an error occurred, return false.
             return false;
