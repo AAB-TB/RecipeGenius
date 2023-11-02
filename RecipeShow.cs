@@ -23,8 +23,6 @@ namespace RecipeGenius
         {
             InitializeComponent();
             AllRecepie = recipeBook.LoadRecipiesData();
-
-
         }
 
         public void PopulateRecipe(string title)
@@ -62,11 +60,8 @@ namespace RecipeGenius
             }
             catch (Exception ex)
             {
-
                 recipeBook.LogErrorToFile(ex.Message);
             }
-
-
         }
     }
 }

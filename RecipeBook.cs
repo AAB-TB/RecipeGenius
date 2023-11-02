@@ -12,6 +12,7 @@ namespace RecipeGenius
 {
     public class RecipeBook
     {
+        public string BaseFileLocation = "";
         public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\FelLogg.txt";
         public string RecipieFile { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeList.txt";
         public string AdminLoggIn { get; } = @"C:\Object oriented Programming\RecipeGenius\Admin.txt";
