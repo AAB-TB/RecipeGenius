@@ -10,11 +10,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RecipeGenius
 {
-    public class FilePaths
+    public class RecipeBook
     {
         public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\FelLogg.txt";
         public string RecipieFile { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeList.txt";
         public string AdminLoggIn { get; } = @"C:\Object oriented Programming\RecipeGenius\Admin.txt";
+        public List<string[]> AllRecipies { get; set; } = new List<string[]>();
+
 
         public void LogErrorToFile(string errorMessage)
         {
@@ -37,7 +39,7 @@ namespace RecipeGenius
             int i = 0;
             if (File.Exists(RecipieFile))
             {
-                
+
                 using (TextFieldParser parser = new TextFieldParser(RecipieFile))
                 {
                     parser.TextFieldType = FieldType.Delimited;
@@ -57,16 +59,40 @@ namespace RecipeGenius
                             LogErrorToFile($"Wrong number of fields in {RecipieFile} on row {i}");
                         }
                     }
-                    
-                    
                 }
             }
             else
             {
-               
                 LogErrorToFile($"The recepie data file was not found {RecipieFile}");
             }
+            AllRecipies = data;
             return data;
+        }
+        public void SaveRecipieData()
+        {
+            if (AllRecipies.Count() != 0)
+            {
+                List<string> recipies = new List<string>();
+
+                foreach (string[] user in AllRecipies)
+                {
+                    string userString = "";
+                    // Join the parts of the user array into a single string to display in the ListBox.
+                    for (int i = 0; i < 4; i++)
+                    {
+                        userString += user[i] + ",";
+                    }
+                    userString += '"' + user[4] + '"' +',';
+                    userString += '"' + user[5] + '"';
+
+                    recipies.Add(userString);
+                }
+                File.WriteAllLines(this.RecipieFile, recipies); 
+            }
+            else
+            {
+                LogErrorToFile("No data to process.");
+            }
         }
     }
 }

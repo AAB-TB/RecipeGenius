@@ -8,12 +8,12 @@ namespace RecipeGenius
 {
     public class SearchRecipes
     {
-        FilePaths filePaths = new FilePaths();
+        RecipeBook recipeBook = new RecipeBook();
         private List<string[]> AllRecipies { get; set; } = new List<string[]>();
         public List<string[]> Items { get; set; }
         public SearchRecipes()
         {
-           AllRecipies = filePaths.LoadRecipiesData();
+           AllRecipies = recipeBook.LoadRecipiesData();
         }
 
         public void Search(string searchfor)

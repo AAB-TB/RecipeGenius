@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,15 +14,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace RecipeGenius
 {
     public partial class RecipeShow : Form
-    {FilePaths filePaths = new FilePaths();
+    {
+        RecipeBook recipeBook = new RecipeBook();
 
         List<string[]> AllRecepie = new List<string[]>();
         public string Title { get; set; }
         public RecipeShow()
         {
             InitializeComponent();
-            AllRecepie = filePaths.LoadRecipiesData();
-            
+            AllRecepie = recipeBook.LoadRecipiesData();
+
 
         }
 
@@ -44,8 +47,13 @@ namespace RecipeGenius
 
                     TitelLabel.Text = recipeShow[0];
                     CookingTimeLabel.Text = recipeShow[1];
+                    servingLabel.Text = recipeShow[2];
                     richTextBox2.Text = recipeShow[4];
                     richTextBox1.Text = recipeShow[5];
+
+                    label5.Text = "Serving";
+                    if (recipeShow[2] != "1")
+                        label5.Text = "Servings";
                 }
                 else
                 {
@@ -55,9 +63,9 @@ namespace RecipeGenius
             catch (Exception ex)
             {
 
-                filePaths.LogErrorToFile(ex.Message);
+                recipeBook.LogErrorToFile(ex.Message);
             }
-                 
+
 
         }
     }

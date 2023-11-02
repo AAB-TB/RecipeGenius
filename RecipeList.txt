@@ -4,7 +4,25 @@ Pasta Bolognese,40 min,4,Pasta,"4 dl pasta
 1 morot
 1 burk krossade tomater
 salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
-Pasta Bolognese,40 min,4,Pasta,"4 dl pasta
+Spagetti,20 min,4,Pasta,"4 dl pasta
+1 gul lök
+250g köttfärs
+1 morot
+1 burk krossade tomater
+salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
+Fisksoppa,40 min,4,Fisk,"4 dl pasta
+1 gul lök
+250g köttfärs
+1 morot
+1 burk krossade tomater
+salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
+Köttsoppa,20 min,4,Soppa,"4 dl pasta
+1 gul lök
+250g köttfärs
+1 morot
+1 burk krossade tomater
+salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
+Äppelkaka,20 min,4,Desserter,"4 dl pasta
 1 gul lök
 250g köttfärs
 1 morot
