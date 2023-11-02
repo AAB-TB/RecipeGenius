@@ -1,16 +1,10 @@
-Pasta Bolognese,40 min,4,Pasta,"4 dl pasta
+Pasta Bolognese,4,4,Pasta,"4 dl pasta
 1 gul lök
 250g köttfärs
 1 morot
 1 burk krossade tomater
 salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
-Lax i ugn,20 min,2,Fisk,"4 dl pasta
-1 gul lök
-250g köttfärs
-1 morot
-1 burk krossade tomater
-salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
-oxfile ala Berra,20 min,4,Kött,"4 dl pasta
+Spagetti,40 min,4,Pasta,"4 dl pasta
 1 gul lök
 250g köttfärs
 1 morot

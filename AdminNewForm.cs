@@ -20,15 +20,18 @@ namespace RecipeGenius
     {
         FilePaths filePaths = new FilePaths();
 
+        List<string[]> Recipies = new List<string[]>();
 
+        public string RecipieKey { get; set; }
 
         public List<AddRecipe> recipeList = new List<AddRecipe>();
+
         AddRecipe addRecipe = new AddRecipe();
         public AdminNewForm()
         {
             InitializeComponent();
             LoadCsvData(filePaths.RecipieFile);
-
+            Recipies = filePaths.LoadRecipiesData();
         }
 
         int indexRow;
@@ -46,7 +49,6 @@ namespace RecipeGenius
                     {
                         string[] fields = parser.ReadFields();
                         dataGridView1.Rows.Add(fields);
-
                     }
                 }
             }
@@ -64,22 +66,34 @@ namespace RecipeGenius
         //**************************ADD BUTTON***********************************************************     
         private void button1_Click(object sender, EventArgs e)
         {
-            var newRecipe = new AddRecipe
+            string titleCheck = textBox1.Text;
+            var checkTitel = Recipies.Where(arr => arr[0].Equals(titleCheck.Trim(), StringComparison.CurrentCultureIgnoreCase));
+
+            if (checkTitel.Count() == 0)
             {
+                var newRecipe = new AddRecipe
+                {
 
-                RecipeTitle = textBox1.Text,
-                RecipeTime = textBox2.Text,
-                NumberOfServing = textBox3.Text,
-                Category = textBox4.Text,
-                Ingredients = richTextBox1.Text,
-                Description = richTextBox2.Text
-            };
+                    RecipeTitle = textBox1.Text,
+                    RecipeTime = textBox2.Text,
+                    NumberOfServing = textBox3.Text,
+                    Category = textBox4.Text,
+                    Ingredients = richTextBox1.Text,
+                    Description = richTextBox2.Text
+                };
 
-            recipeList.Add(newRecipe);
-            SaveRecipeToFile(filePaths.RecipieFile);
-            ClearTextBoxes();
+                recipeList.Add(newRecipe);
+                SaveRecipeToFile(filePaths.RecipieFile);
+                ClearTextBoxes();
+                Recipies = filePaths.LoadRecipiesData();
 
-            MessageBox.Show("Content added successfully.");
+                MessageBox.Show("Content added successfully.");
+            }
+            else
+            {
+                filePaths.LogErrorToFile("Recipe title already exists, user have to change the title for the new recipe.");
+                MessageBox.Show("Recipe title already exists, Change the title.");
+            }
 
         }
 
@@ -95,22 +109,23 @@ namespace RecipeGenius
         //*******************************SEARCH BUTTON**************************************************************
         private void button2_Click(object sender, EventArgs e)
         {
+
             // Specify the column to search (e.g., column 1 for the second column).
             int columnToSearch = 0;
 
             // Get the search term from a text box (replace with your control).
             string searchTerm = textSearch.Text;
 
+            // Looking for title or Category
+            var recipieFound = Recipies.Where(arr => arr[3].Equals(searchTerm.Trim(), StringComparison.CurrentCultureIgnoreCase)
+            || arr[0].Equals(searchTerm.Trim(), StringComparison.CurrentCultureIgnoreCase));
+
             // Search for and filter the data based on the specified column and search term.
-            List<string> filteredData = SearchByColumnValue(searchTerm, columnToSearch);
-            if (filteredData.Count == 0)
-            {
-                filteredData = SearchByColumnValue(searchTerm, 3);
-            }
-            // List<string> filteredData = SearchByColumnValue(searchTerm, 3);
+            List<string[]> filteredData = recipieFound.ToList();
 
             // Display the filtered data in the DataGridView.
             DisplayFilteredData(filteredData);
+            textSearch.Clear();
 
         }
         //*************************************UPDATE BUTTON*************************************************
@@ -128,7 +143,8 @@ namespace RecipeGenius
                 newDataRow.Cells[5].Value = richTextBox2.Text;
 
                 UpdateCsvData(indexRow);
-                MessageBox.Show("Updated");
+                LoadCsvData(filePaths.RecipieFile);
+                //MessageBox.Show("Updated");
 
                 ClearTextBoxes();
             }
@@ -138,17 +154,32 @@ namespace RecipeGenius
         //***************************************DELETE BUTTON********************************************************
         private void button5_Click(object sender, EventArgs e)
         {
-            indexRow = dataGridView1.CurrentCell.RowIndex;
-            if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
-            {
-                DeleteRowFromCsv(indexRow, filePaths.RecipieFile);
+            var recipieToDelete = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
+            Recipies.Remove(recipieToDelete);
 
-                dataGridView1.Rows.RemoveAt(indexRow);
+            filePaths.AllRecipies = Recipies;
 
-                ClearTextBoxes();
-                MessageBox.Show("Content deleted successfully.");
+            filePaths.SaveRecipieData();
 
-            }
+            //indexRow = dataGridView1.CurrentCell.RowIndex;
+            //if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
+            //{
+            //    DeleteRowFromCsv(indexRow, filePaths.RecipieFile);
+
+            //    dataGridView1.Rows.RemoveAt(indexRow);
+
+            //    ClearTextBoxes();
+            //    MessageBox.Show("Content deleted successfully.");
+
+            //}
+            LoadCsvData(filePaths.RecipieFile);
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            richTextBox1.Clear();
+            richTextBox2.Clear();
+
         }
         //**********************************DATA GRID VIEW*****************************************************
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -167,6 +198,8 @@ namespace RecipeGenius
                 richTextBox1.Text = selectedRow.Cells[4].Value.ToString();
                 richTextBox2.Text = selectedRow.Cells[5].Value.ToString();
                 // Populate other text boxes with data as needed
+
+                RecipieKey = textBox1.Text;
             }
             else
             {
@@ -214,18 +247,6 @@ namespace RecipeGenius
             return lines;
         }
 
-        // Function to write a List<string> to a CSV file
-        public void WriteCsvFile(string recipeFile, List<string> data)
-        {
-            using (StreamWriter writer = new StreamWriter(recipeFile))
-            {
-                foreach (var line in data)
-                {
-                    writer.WriteLine(line);
-                }
-            }
-        }
-
         // Function to count double quotes in a string
         public int CountDoubleQuotes(string text)
         {
@@ -235,62 +256,44 @@ namespace RecipeGenius
         // Function to delete a line by its index
         public void DeleteRowFromCsv(int rowIndex, string recipeFile)
         {
-            List<string> data = ReadCsvFile(recipeFile);
-
-            if (rowIndex >= 0 && rowIndex < data.Count)
-            {
-                data.RemoveAt(rowIndex); // Remove the desired row
-                WriteCsvFile(recipeFile, data); // Write the updated data back to the CSV file
-            }
+            var recipieToModify = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
+            Recipies.Remove(recipieToModify);
+            filePaths.AllRecipies = Recipies;
+            filePaths.SaveRecipieData();
         }
 
         public void UpdateCsvData(int rowIndex)
         {
-            List<string> data = ReadCsvFile(filePaths.RecipieFile);
-            if (rowIndex >= 0 && rowIndex < data.Count)
+            var recipieToModify = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
+            if (recipieToModify.Count() > 0)
             {
-                List<string> updatedRow = new List<string>
-                   {
-                    textBox1.Text,
-                    textBox2.Text,
-                    textBox3.Text,
-                    textBox4.Text,
-                    '"' + richTextBox1.Text + '"',
-                    '"' + richTextBox2.Text + '"'
-                   };
+                recipieToModify[0] = textBox1.Text;
+                recipieToModify[1] = textBox2.Text;
+                recipieToModify[2] = textBox3.Text;
+                recipieToModify[3] = textBox4.Text;
+                recipieToModify[4] = richTextBox1.Text;
+                recipieToModify[5] = richTextBox1.Text;
 
-                data[rowIndex] = string.Join(",", updatedRow);
+                filePaths.AllRecipies = Recipies;
+                filePaths.SaveRecipieData();
             }
-            File.WriteAllLines(filePaths.RecipieFile, data);
-        }
-
-        private List<string> SearchByColumnValue(string searchTerm, int columnToSearch)
-        {
-            List<string> data = ReadCsvFile(filePaths.RecipieFile);
-            List<string> filteredData = new List<string>();
-
-            foreach (string row in data)
+            else
             {
-                string[] columns = row.Split(',');
-
-                if (columns.Length > columnToSearch && columns[columnToSearch].ToLower() == searchTerm.ToLower())
-                {
-                    filteredData.Add(row);
-                }
+                filePaths.LogErrorToFile($"Recipie key '{RecipieKey}' could not be found in '{filePaths.RecipieFile}'.");
             }
 
-            return filteredData;
         }
+
+
 
         // Function to display the filtered data in the DataGridView
-        private void DisplayFilteredData(List<string> filteredData)
+        private void DisplayFilteredData(List<string[]> filteredData)
         {
             dataGridView1.Rows.Clear();
 
-            foreach (string row in filteredData)
+            foreach (string[] row in filteredData)
             {
-                string[] columns = row.Split(',');
-                dataGridView1.Rows.Add(columns);
+                dataGridView1.Rows.Add(row);
             }
         }
 
