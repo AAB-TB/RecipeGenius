@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj": {}
+    "E:\\csharp projekt\\Winformsprojekt\\RG\\RecipeGenius\\RecipeGenius.csproj": {}
   },
   "projects": {
-    "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj": {
+    "E:\\csharp projekt\\Winformsprojekt\\RG\\RecipeGenius\\RecipeGenius.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj",
+        "projectUniqueName": "E:\\csharp projekt\\Winformsprojekt\\RG\\RecipeGenius\\RecipeGenius.csproj",
         "projectName": "RecipeGenius",
-        "projectPath": "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\RecipeGenius.csproj",
-        "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-        "outputPath": "C:\\Object oriented Programming\\RecipeGenius\\RecipeGenius\\RecipeGenius\\obj\\",
+        "projectPath": "E:\\csharp projekt\\Winformsprojekt\\RG\\RecipeGenius\\RecipeGenius.csproj",
+        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+        "outputPath": "E:\\csharp projekt\\Winformsprojekt\\RG\\RecipeGenius\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

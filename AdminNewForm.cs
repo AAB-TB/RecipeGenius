@@ -37,24 +37,31 @@ namespace RecipeGenius
         int indexRow;
         public void LoadCsvData(string recipeFile)
         {
-            if (File.Exists(recipeFile))
+            try
             {
-                dataGridView1.Rows.Clear();
-                using (TextFieldParser parser = new TextFieldParser(recipeFile))
+                if (File.Exists(recipeFile))
                 {
-                    parser.TextFieldType = FieldType.Delimited;
-                    parser.SetDelimiters(","); // Assuming your CSV uses comma as a delimiter
-
-                    while (!parser.EndOfData)
+                    dataGridView1.Rows.Clear();
+                    using (TextFieldParser parser = new TextFieldParser(recipeFile))
                     {
-                        string[] fields = parser.ReadFields();
-                        dataGridView1.Rows.Add(fields);
+                        parser.TextFieldType = FieldType.Delimited;
+                        parser.SetDelimiters(","); // Assuming your CSV uses a comma as a delimiter
+
+                        while (!parser.EndOfData)
+                        {
+                            string[] fields = parser.ReadFields();
+                            dataGridView1.Rows.Add(fields);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("File not found.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("File not found.");
+                recipeBook.LogErrorToFile(ex.Message);
             }
         }
 
@@ -66,35 +73,40 @@ namespace RecipeGenius
         //**************************ADD BUTTON***********************************************************     
         private void button1_Click(object sender, EventArgs e)
         {
-            string titleCheck = textBox1.Text;
-            var checkTitel = Recipies.Where(arr => arr[0].Equals(titleCheck.Trim(), StringComparison.CurrentCultureIgnoreCase));
-
-            if (checkTitel.Count() == 0)
+            try
             {
-                var newRecipe = new AddRecipe
+                string titleCheck = textBox1.Text;
+                var checkTitel = Recipies.Where(arr => arr[0].Equals(titleCheck.Trim(), StringComparison.CurrentCultureIgnoreCase));
+
+                if (checkTitel.Count() == 0)
                 {
+                    var newRecipe = new AddRecipe
+                    {
+                        RecipeTitle = textBox1.Text,
+                        RecipeTime = textBox2.Text,
+                        NumberOfServing = textBox3.Text,
+                        Category = textBox4.Text,
+                        Ingredients = richTextBox1.Text,
+                        Description = richTextBox2.Text
+                    };
 
-                    RecipeTitle = textBox1.Text,
-                    RecipeTime = textBox2.Text,
-                    NumberOfServing = textBox3.Text,
-                    Category = textBox4.Text,
-                    Ingredients = richTextBox1.Text,
-                    Description = richTextBox2.Text
-                };
-
-                recipeList.Add(newRecipe);
-                SaveRecipeToFile(recipeBook.RecipieFile);
-                ClearTextBoxes();
-                Recipies = recipeBook.LoadRecipiesData();
-
-                MessageBox.Show("Content added successfully.");
+                    recipeList.Add(newRecipe);
+                    SaveRecipeToFile(recipeBook.RecipieFile);
+                    ClearTextBoxes();
+                    Recipies = recipeBook.LoadRecipiesData();
+                    LoadCsvData(recipeBook.RecipieFile);
+                    MessageBox.Show("Content added successfully.");
+                }
+                else
+                {
+                    recipeBook.LogErrorToFile("Recipe title already exists, user has to change the title for the new recipe.");
+                    MessageBox.Show("Recipe title already exists, Change the title.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                recipeBook.LogErrorToFile("Recipe title already exists, user have to change the title for the new recipe.");
-                MessageBox.Show("Recipe title already exists, Change the title.");
+                recipeBook.LogErrorToFile(ex.Message);
             }
-
         }
 
         public void ClearTextBoxes()
@@ -132,54 +144,66 @@ namespace RecipeGenius
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
+            try
             {
-                DataGridViewRow newDataRow = dataGridView1.Rows[indexRow];
-                newDataRow.Cells[0].Value = textBox1.Text;
-                newDataRow.Cells[1].Value = textBox2.Text;
-                newDataRow.Cells[2].Value = textBox3.Text;
-                newDataRow.Cells[3].Value = textBox4.Text;
-                newDataRow.Cells[4].Value = richTextBox1.Text;
-                newDataRow.Cells[5].Value = richTextBox2.Text;
+                if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
+                {
+                    DataGridViewRow newDataRow = dataGridView1.Rows[indexRow];
+                    newDataRow.Cells[0].Value = textBox1.Text;
+                    newDataRow.Cells[1].Value = textBox2.Text;
+                    newDataRow.Cells[2].Value = textBox3.Text;
+                    newDataRow.Cells[3].Value = textBox4.Text;
+                    newDataRow.Cells[4].Value = richTextBox1.Text;
+                    newDataRow.Cells[5].Value = richTextBox2.Text;
 
-                UpdateCsvData(indexRow);
-                LoadCsvData(recipeBook.RecipieFile);
-                //MessageBox.Show("Updated");
+                    UpdateCsvData(indexRow);
+                    LoadCsvData(recipeBook.RecipieFile);
+                    //MessageBox.Show("Updated");
 
-                ClearTextBoxes();
+                    ClearTextBoxes();
+                }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                recipeBook.LogErrorToFile(ex.Message);
+            }
         }
         //***************************************DELETE BUTTON********************************************************
         private void button5_Click(object sender, EventArgs e)
         {
-            var recipieToDelete = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
-            Recipies.Remove(recipieToDelete);
+            try
+            {
+                var recipieToDelete = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
+                Recipies.Remove(recipieToDelete);
 
-            recipeBook.AllRecipies = Recipies;
+                recipeBook.AllRecipies = Recipies;
 
-            recipeBook.SaveRecipieData();
+                recipeBook.SaveRecipieData();
 
-            //indexRow = dataGridView1.CurrentCell.RowIndex;
-            //if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
-            //{
-            //    DeleteRowFromCsv(indexRow, filePaths.RecipieFile);
+                //indexRow = dataGridView1.CurrentCell.RowIndex;
+                //if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
+                //{
+                //    DeleteRowFromCsv(indexRow, filePaths.RecipieFile);
 
-            //    dataGridView1.Rows.RemoveAt(indexRow);
+                //    dataGridView1.Rows.RemoveAt(indexRow);
 
-            //    ClearTextBoxes();
-            //    MessageBox.Show("Content deleted successfully.");
+                //    ClearTextBoxes();
+                //    MessageBox.Show("Content deleted successfully.");
 
-            //}
-            LoadCsvData(recipeBook.RecipieFile);
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            richTextBox1.Clear();
-            richTextBox2.Clear();
-
+                //}
+                LoadCsvData(recipeBook.RecipieFile);
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                richTextBox1.Clear();
+                richTextBox2.Clear();
+            }
+            catch (Exception ex)
+            {
+                recipeBook.LogErrorToFile(ex.Message);
+            }
         }
         //**********************************DATA GRID VIEW*****************************************************
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -211,37 +235,44 @@ namespace RecipeGenius
         {
             List<string> lines = new List<string>();
 
-            using (StreamReader reader = new StreamReader(recipeFile))
+            try
             {
-                string line = string.Empty;
-                while (!reader.EndOfStream)
+                using (StreamReader reader = new StreamReader(recipeFile))
                 {
-                    string currentLine = reader.ReadLine();
+                    string line = string.Empty;
+                    while (!reader.EndOfStream)
+                    {
+                        string currentLine = reader.ReadLine();
 
-                    if (string.IsNullOrEmpty(line))
-                    {
-                        line = currentLine;
-                    }
-                    else
-                    {
-                        // Check if the line has an even number of double quotes
-                        if (CountDoubleQuotes(line) % 2 == 1)
+                        if (string.IsNullOrEmpty(line))
                         {
-                            line += Environment.NewLine + currentLine;
+                            line = currentLine;
                         }
                         else
                         {
-                            lines.Add(line);
-                            line = currentLine;
+                            // Check if the line has an even number of double quotes
+                            if (CountDoubleQuotes(line) % 2 == 1)
+                            {
+                                line += Environment.NewLine + currentLine;
+                            }
+                            else
+                            {
+                                lines.Add(line);
+                                line = currentLine;
+                            }
                         }
                     }
-                }
 
-                // Add the last line
-                if (!string.IsNullOrEmpty(line))
-                {
-                    lines.Add(line);
+                    // Add the last line
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        lines.Add(line);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                recipeBook.LogErrorToFile(ex.Message);
             }
 
             return lines;
@@ -264,25 +295,32 @@ namespace RecipeGenius
 
         public void UpdateCsvData(int rowIndex)
         {
-            var recipieToModify = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
-            if (recipieToModify.Count() > 0)
+            try
             {
-                recipieToModify[0] = textBox1.Text;
-                recipieToModify[1] = textBox2.Text;
-                recipieToModify[2] = textBox3.Text;
-                recipieToModify[3] = textBox4.Text;
-                recipieToModify[4] = richTextBox1.Text;
-                recipieToModify[5] = richTextBox1.Text;
+                var recipieToModify = Recipies.Where(arr => arr[0].Equals(RecipieKey)).FirstOrDefault();
+                if (recipieToModify != null)
+                {
+                    recipieToModify[0] = textBox1.Text;
+                    recipieToModify[1] = textBox2.Text;
+                    recipieToModify[2] = textBox3.Text;
+                    recipieToModify[3] = textBox4.Text;
+                    recipieToModify[4] = richTextBox1.Text;
+                    recipieToModify[5] = richTextBox2.Text;
 
-                recipeBook.AllRecipies = Recipies;
-                recipeBook.SaveRecipieData();
+                    recipeBook.AllRecipies = Recipies;
+                    recipeBook.SaveRecipieData();
+                }
+                else
+                {
+                    recipeBook.LogErrorToFile($"Recipe key '{RecipieKey}' could not be found in '{recipeBook.RecipieFile}'.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                recipeBook.LogErrorToFile($"Recipie key '{RecipieKey}' could not be found in '{recipeBook.RecipieFile}'.");
+                recipeBook.LogErrorToFile(ex.Message);
             }
-
         }
+
 
 
 

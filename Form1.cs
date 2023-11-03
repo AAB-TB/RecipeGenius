@@ -105,7 +105,6 @@ namespace RecipeGenius
             {
                 // If an error occurs while reading the file, display an error message in the "Reg" label.
                 Reg.Text = ($"An error occurred: {ex.Message}");
-
                 recipeBook.LogErrorToFile(ex.Message);
             }
             // If no valid credentials are found or an error occurred, return false.
@@ -161,9 +160,8 @@ namespace RecipeGenius
             else
             {
                 Reg.Text = ($"We didn´t find a recipe with that title or category");
-
-
             }
+            searchTextBox.Clear();
         }
     }
 }

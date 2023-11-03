@@ -1,9 +1,3 @@
-Pasta Bolognese,40 min,4,Pasta,"4 dl pasta
-1 gul lök
-250g köttfärs
-1 morot
-1 burk krossade tomater
-salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
 Spagetti,20 min,4,Pasta,"4 dl pasta
 1 gul lök
 250g köttfärs
@@ -28,3 +22,7 @@ salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med l
 1 morot
 1 burk krossade tomater
 salt och peppar","Börja med att att hacka löken. Stek sedan köttfärsen med löken. koka pastan och blanda"
+pannkaka,20 min,4,Desserter,"5 dl mjölk
+2 ägg
+4 dl mjöl
+salt","blanda de torra varorna. sen blanda allt. stek tunna fina pannkakor."
