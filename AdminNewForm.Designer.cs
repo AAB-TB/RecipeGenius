@@ -45,125 +45,125 @@
             button4 = new Button();
             button5 = new Button();
             dataGridView1 = new DataGridView();
-            textBox4 = new TextBox();
-            button3 = new Button();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
+            textBox4 = new TextBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(107, 66);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(50, 32);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(172, 41);
+            label1.Size = new Size(88, 20);
             label1.TabIndex = 0;
             label1.Text = "RecipeTittle";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(97, 175);
-            label2.Margin = new Padding(5, 0, 5, 0);
+            label2.Location = new Point(46, 85);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(171, 41);
+            label2.Size = new Size(87, 20);
             label2.TabIndex = 1;
             label2.Text = "RecipeTime";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1875, 74);
-            label3.Margin = new Padding(5, 0, 5, 0);
+            label3.Location = new Point(882, 36);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(129, 41);
+            label3.Size = new Size(64, 20);
             label3.TabIndex = 2;
             label3.Text = "Servings";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(112, 282);
-            label4.Margin = new Padding(5, 0, 5, 0);
+            label4.Location = new Point(53, 138);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(168, 41);
+            label4.Size = new Size(83, 20);
             label4.TabIndex = 3;
             label4.Text = "Ingredients";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(1875, 175);
-            label5.Margin = new Padding(5, 0, 5, 0);
+            label5.Location = new Point(882, 85);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(139, 41);
+            label5.Size = new Size(69, 20);
             label5.TabIndex = 4;
             label5.Text = "Category";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(1875, 323);
-            label6.Margin = new Padding(5, 0, 5, 0);
+            label6.Location = new Point(882, 158);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(169, 41);
+            label6.Size = new Size(85, 20);
             label6.TabIndex = 5;
             label6.Text = "Description";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(355, 60);
-            textBox1.Margin = new Padding(5);
+            textBox1.Location = new Point(167, 29);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(781, 47);
+            textBox1.Size = new Size(370, 27);
             textBox1.TabIndex = 6;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(355, 169);
-            textBox2.Margin = new Padding(5);
+            textBox2.Location = new Point(167, 82);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(261, 47);
+            textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 7;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(2125, 74);
-            textBox3.Margin = new Padding(5);
+            textBox3.Location = new Point(1000, 36);
+            textBox3.Margin = new Padding(2, 2, 2, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(261, 47);
+            textBox3.Size = new Size(125, 27);
             textBox3.TabIndex = 8;
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(355, 273);
-            richTextBox1.Margin = new Padding(5);
+            richTextBox1.Location = new Point(167, 133);
+            richTextBox1.Margin = new Padding(2, 2, 2, 2);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(514, 499);
+            richTextBox1.Size = new Size(244, 245);
             richTextBox1.TabIndex = 9;
             richTextBox1.Text = "";
             // 
             // richTextBox2
             // 
-            richTextBox2.Location = new Point(2093, 317);
-            richTextBox2.Margin = new Padding(5);
+            richTextBox2.Location = new Point(985, 155);
+            richTextBox2.Margin = new Padding(2, 2, 2, 2);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(910, 398);
+            richTextBox2.Size = new Size(430, 196);
             richTextBox2.TabIndex = 10;
             richTextBox2.Text = "";
             // 
             // button1
             // 
-            button1.Location = new Point(288, 790);
-            button1.Margin = new Padding(5);
+            button1.Location = new Point(136, 385);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(233, 98);
+            button1.Size = new Size(110, 48);
             button1.TabIndex = 13;
             button1.Text = "Add Recipe";
             button1.UseVisualStyleBackColor = true;
@@ -171,10 +171,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(2545, 787);
-            button2.Margin = new Padding(5);
+            button2.Location = new Point(1198, 384);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(199, 63);
+            button2.Size = new Size(94, 31);
             button2.TabIndex = 14;
             button2.Text = "Search";
             button2.UseVisualStyleBackColor = true;
@@ -182,18 +182,18 @@
             // 
             // textSearch
             // 
-            textSearch.Location = new Point(2013, 790);
-            textSearch.Margin = new Padding(5);
+            textSearch.Location = new Point(947, 385);
+            textSearch.Margin = new Padding(2, 2, 2, 2);
             textSearch.Name = "textSearch";
-            textSearch.Size = new Size(468, 47);
+            textSearch.Size = new Size(222, 27);
             textSearch.TabIndex = 15;
             // 
             // button4
             // 
-            button4.Location = new Point(571, 790);
-            button4.Margin = new Padding(5);
+            button4.Location = new Point(269, 385);
+            button4.Margin = new Padding(2, 2, 2, 2);
             button4.Name = "button4";
-            button4.Size = new Size(199, 98);
+            button4.Size = new Size(94, 48);
             button4.TabIndex = 17;
             button4.Text = "Update";
             button4.UseVisualStyleBackColor = true;
@@ -201,10 +201,10 @@
             // 
             // button5
             // 
-            button5.Location = new Point(817, 790);
-            button5.Margin = new Padding(5);
+            button5.Location = new Point(384, 385);
+            button5.Margin = new Padding(2, 2, 2, 2);
             button5.Name = "button5";
-            button5.Size = new Size(199, 98);
+            button5.Size = new Size(94, 48);
             button5.TabIndex = 18;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
@@ -214,33 +214,15 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column7 });
-            dataGridView1.Location = new Point(165, 924);
-            dataGridView1.Margin = new Padding(5);
+            dataGridView1.Location = new Point(78, 451);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(2766, 560);
+            dataGridView1.Size = new Size(1302, 273);
             dataGridView1.TabIndex = 19;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(2125, 175);
-            textBox4.Margin = new Padding(5);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(261, 47);
-            textBox4.TabIndex = 20;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(2672, 74);
-            button3.Name = "button3";
-            button3.Size = new Size(331, 103);
-            button3.TabIndex = 21;
-            button3.Text = "Logg out";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // Column1
             // 
@@ -290,11 +272,30 @@
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
             // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(1000, 85);
+            textBox4.Margin = new Padding(2, 2, 2, 2);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(125, 27);
+            textBox4.TabIndex = 20;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1257, 36);
+            button3.Margin = new Padding(1, 1, 1, 1);
+            button3.Name = "button3";
+            button3.Size = new Size(156, 50);
+            button3.TabIndex = 21;
+            button3.Text = "Logg out";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // AdminNewForm
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(3135, 1514);
+            ClientSize = new Size(1412, 767);
             Controls.Add(button3);
             Controls.Add(textBox4);
             Controls.Add(dataGridView1);
@@ -314,7 +315,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(5);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AdminNewForm";
             Text = "AdminNewForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

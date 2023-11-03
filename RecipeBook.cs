@@ -12,7 +12,6 @@ namespace RecipeGenius
 {
     public class RecipeBook
     {
-        public string BaseFileLocation = "";
         public string ErrorLoggs { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\FelLogg.txt";
         public string RecipieFile { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\RecipeList.txt";
         public string AdminLoggIn { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\Admin.txt";
@@ -83,12 +82,12 @@ namespace RecipeGenius
                     {
                         userString += user[i] + ",";
                     }
-                    userString += '"' + user[4] + '"' +',';
+                    userString += '"' + user[4] + '"' + ',';
                     userString += '"' + user[5] + '"';
 
                     recipies.Add(userString);
                 }
-                File.WriteAllLines(this.RecipieFile, recipies); 
+                File.WriteAllLines(this.RecipieFile, recipies);
             }
             else
             {

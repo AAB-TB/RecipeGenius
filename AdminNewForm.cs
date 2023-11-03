@@ -158,8 +158,7 @@ namespace RecipeGenius
 
                     UpdateCsvData(indexRow);
                     LoadCsvData(recipeBook.RecipieFile);
-                    //MessageBox.Show("Updated");
-
+                   
                     ClearTextBoxes();
                 }
             }
@@ -181,17 +180,6 @@ namespace RecipeGenius
 
                 recipeBook.SaveRecipieData();
 
-                //indexRow = dataGridView1.CurrentCell.RowIndex;
-                //if (indexRow >= 0 && indexRow < dataGridView1.Rows.Count)
-                //{
-                //    DeleteRowFromCsv(indexRow, filePaths.RecipieFile);
-
-                //    dataGridView1.Rows.RemoveAt(indexRow);
-
-                //    ClearTextBoxes();
-                //    MessageBox.Show("Content deleted successfully.");
-
-                //}
                 LoadCsvData(recipeBook.RecipieFile);
                 textBox1.Clear();
                 textBox2.Clear();
@@ -334,7 +322,7 @@ namespace RecipeGenius
                 dataGridView1.Rows.Add(row);
             }
         }
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
