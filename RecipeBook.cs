@@ -12,9 +12,9 @@ namespace RecipeGenius
 {
     public class RecipeBook
     {
-        public string ErrorLoggs { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\FelLogg.txt";
-        public string RecipieFile { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\RecipeList.txt";
-        public string AdminLoggIn { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\Admin.txt";
+        public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\FelLogg.txt";
+        public string RecipieFile { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeList.txt";
+        public string AdminLoggIn { get; } = "C:\\Object oriented Programming\\RecipeGenius\\Admin.txt";
         public List<string[]> AllRecipies { get; set; } = new List<string[]>();
 
 

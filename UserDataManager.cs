@@ -6,6 +6,7 @@ namespace RecipeGenius
 {
     public class UserDataManager
     {
+        RecipeBook recipeBook = new RecipeBook();
         private List<string[]> userDataList;
 
         public UserDataManager()
@@ -36,9 +37,9 @@ namespace RecipeGenius
 
             try
             {
-                string filePath = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\Admin.txt";
+                
 
-                using (StreamReader reader = new StreamReader(filePath))
+                using (StreamReader reader = new StreamReader(recipeBook.AdminLoggIn))
                 {
                     string line;
                     while ((line = reader.ReadLine()) != null)
