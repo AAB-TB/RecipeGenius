@@ -12,9 +12,9 @@ namespace RecipeGenius
 {
     public class RecipeBook
     {
-        public string ErrorLoggs { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\FelLogg.txt";
-        public string RecipieFile { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\RecipeList.txt";
-        public string AdminLoggIn { get; } = "C:\\Visual studio projekt\\Windowsforms projekt\\Onsdag-Fredag\\RecipeGenius\\RecipeGenius\\Admin.txt";
+        public string ErrorLoggs { get; } = "C:\\Object oriented Programming\\RecipeGenius\\FelLogg.txt";
+        public string RecipieFile { get; } = "C:\\Object oriented Programming\\RecipeGenius\\RecipeList.txt";
+        public string AdminLoggIn { get; } = "C:\\Object oriented Programming\\RecipeGenius\\Admin.txt";
         public List<string[]> AllRecipies { get; set; } = new List<string[]>();
 
 
@@ -37,36 +37,45 @@ namespace RecipeGenius
         {
             List<string[]> data = new List<string[]>();
             int i = 0;
-            if (File.Exists(RecipieFile))
+            try
             {
-
-                using (TextFieldParser parser = new TextFieldParser(RecipieFile))
+                if (File.Exists(RecipieFile))
                 {
-                    parser.TextFieldType = FieldType.Delimited;
-                    parser.SetDelimiters(","); // Assuming your CSV uses comma as a delimiter
 
-                    while (!parser.EndOfData)
+                    using (TextFieldParser parser = new TextFieldParser(RecipieFile))
                     {
-                        string[] fields = parser.ReadFields();
-                        i++;
-                        if (fields.Length == 6)
+                        parser.TextFieldType = FieldType.Delimited;
+                        parser.SetDelimiters(","); // Assuming your CSV uses comma as a delimiter
+
+                        while (!parser.EndOfData)
                         {
-                            // Add the valid user data to the 'data' list.
-                            data.Add(fields); // Adding arrays to the data list. 
-                        }
-                        else
-                        {
-                            LogErrorToFile($"Wrong number of fields in {RecipieFile} on row {i}");
+                            string[] fields = parser.ReadFields();
+                            i++;
+                            if (fields.Length == 6)
+                            {
+                                // Add the valid user data to the 'data' list.
+                                data.Add(fields); // Adding arrays to the data list. 
+                            }
+                            else
+                            {
+                                LogErrorToFile($"Wrong number of fields in {RecipieFile} on row {i}");
+                            }
                         }
                     }
                 }
+                else
+                {
+                    LogErrorToFile($"The recepie data file was not found {RecipieFile}");
+                }
+                AllRecipies = data;
+                return data;
             }
-            else
+            catch (Exception e)
             {
-                LogErrorToFile($"The recepie data file was not found {RecipieFile}");
+                LogErrorToFile(e.Message);
+                
             }
-            AllRecipies = data;
-            return data;
+            
         }
         public void SaveRecipieData()
         {
