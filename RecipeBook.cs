@@ -67,15 +67,15 @@ namespace RecipeGenius
                 {
                     LogErrorToFile($"The recepie data file was not found {RecipieFile}");
                 }
-                AllRecipies = data;
-                return data;
+                
             }
             catch (Exception e)
             {
                 LogErrorToFile(e.Message);
                 
             }
-            
+            AllRecipies = data;
+            return data;
         }
         public void SaveRecipieData()
         {

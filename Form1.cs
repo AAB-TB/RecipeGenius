@@ -5,11 +5,11 @@ namespace RecipeGenius
 {
     public partial class Form1 : Form
     {
-       
+
 
         RecipeBook recipeBook = new RecipeBook();
         private List<string[]> userDataList;
-        
+
         private UserDataManager userDataManager;
 
         public Form1()
@@ -53,7 +53,7 @@ namespace RecipeGenius
             string enteredUserName = UserName.Text;
             string enteredPassword = UserPassword.Text;
 
-            
+
 
             if (userDataManager.CheckUserCredentials(enteredUserName, enteredPassword))
             {
@@ -67,7 +67,7 @@ namespace RecipeGenius
             }
 
         }
-        
+
         private void aboutUsOpen_Click(object sender, EventArgs e)
         {
             AboutUs aboutUs = new AboutUs();

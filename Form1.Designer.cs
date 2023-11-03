@@ -42,36 +42,42 @@
             // 
             listBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 37;
-            listBox1.Location = new Point(26, 257);
+            listBox1.ItemHeight = 72;
+            listBox1.Location = new Point(55, 527);
+            listBox1.Margin = new Padding(6, 6, 6, 6);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1346, 448);
+            listBox1.Size = new Size(2856, 868);
             listBox1.TabIndex = 0;
             listBox1.MouseDoubleClick += listBox1_MouseDoubleClick;
             // 
             // UserName
             // 
             UserName.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            UserName.Location = new Point(105, 43);
+            UserName.Location = new Point(223, 88);
+            UserName.Margin = new Padding(6, 6, 6, 6);
             UserName.Name = "UserName";
-            UserName.Size = new Size(307, 38);
+            UserName.PlaceholderText = "Enter Username";
+            UserName.Size = new Size(648, 69);
             UserName.TabIndex = 1;
             // 
             // UserPassword
             // 
             UserPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            UserPassword.Location = new Point(447, 43);
+            UserPassword.Location = new Point(950, 88);
+            UserPassword.Margin = new Padding(6, 6, 6, 6);
             UserPassword.Name = "UserPassword";
             UserPassword.PasswordChar = '*';
-            UserPassword.Size = new Size(307, 38);
+            UserPassword.PlaceholderText = "Enter Password";
+            UserPassword.Size = new Size(648, 69);
             UserPassword.TabIndex = 2;
             // 
             // SignInBtn
             // 
             SignInBtn.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            SignInBtn.Location = new Point(1139, 12);
+            SignInBtn.Location = new Point(2420, 25);
+            SignInBtn.Margin = new Padding(6, 6, 6, 6);
             SignInBtn.Name = "SignInBtn";
-            SignInBtn.Size = new Size(233, 125);
+            SignInBtn.Size = new Size(495, 256);
             SignInBtn.TabIndex = 3;
             SignInBtn.Text = "Log in";
             SignInBtn.UseVisualStyleBackColor = true;
@@ -80,17 +86,19 @@
             // Reg
             // 
             Reg.AutoSize = true;
-            Reg.Location = new Point(159, 111);
+            Reg.Location = new Point(338, 228);
+            Reg.Margin = new Padding(6, 0, 6, 0);
             Reg.Name = "Reg";
-            Reg.Size = new Size(0, 20);
+            Reg.Size = new Size(0, 41);
             Reg.TabIndex = 4;
             // 
             // aboutUsOpen
             // 
             aboutUsOpen.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            aboutUsOpen.Location = new Point(1139, 143);
+            aboutUsOpen.Location = new Point(2420, 293);
+            aboutUsOpen.Margin = new Padding(6, 6, 6, 6);
             aboutUsOpen.Name = "aboutUsOpen";
-            aboutUsOpen.Size = new Size(233, 108);
+            aboutUsOpen.Size = new Size(495, 221);
             aboutUsOpen.TabIndex = 5;
             aboutUsOpen.Text = "About Us";
             aboutUsOpen.UseVisualStyleBackColor = true;
@@ -98,18 +106,18 @@
             // 
             // searchTextBox
             // 
-            searchTextBox.Location = new Point(277, 176);
-            searchTextBox.Margin = new Padding(3, 4, 3, 4);
+            searchTextBox.Location = new Point(589, 361);
+            searchTextBox.Margin = new Padding(6, 8, 6, 8);
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(380, 27);
+            searchTextBox.Size = new Size(803, 47);
             searchTextBox.TabIndex = 6;
             // 
             // searchButton
             // 
-            searchButton.Location = new Point(678, 145);
-            searchButton.Margin = new Padding(3, 4, 3, 4);
+            searchButton.Location = new Point(1441, 297);
+            searchButton.Margin = new Padding(6, 8, 6, 8);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(167, 66);
+            searchButton.Size = new Size(355, 135);
             searchButton.TabIndex = 7;
             searchButton.Text = "Search";
             searchButton.UseVisualStyleBackColor = true;
@@ -117,10 +125,10 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1419, 767);
+            ClientSize = new Size(3015, 1572);
             Controls.Add(searchButton);
             Controls.Add(searchTextBox);
             Controls.Add(aboutUsOpen);
@@ -129,6 +137,7 @@
             Controls.Add(UserPassword);
             Controls.Add(UserName);
             Controls.Add(listBox1);
+            Margin = new Padding(6, 6, 6, 6);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
