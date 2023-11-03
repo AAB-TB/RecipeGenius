@@ -94,7 +94,7 @@ namespace RecipeGenius
                     SaveRecipeToFile(recipeBook.RecipieFile);
                     ClearTextBoxes();
                     Recipies = recipeBook.LoadRecipiesData();
-
+                    LoadCsvData(recipeBook.RecipieFile);
                     MessageBox.Show("Content added successfully.");
                 }
                 else

@@ -161,6 +161,7 @@ namespace RecipeGenius
             {
                 Reg.Text = ($"We didn´t find a recipe with that title or category");
             }
+            searchTextBox.Clear();
         }
     }
 }
