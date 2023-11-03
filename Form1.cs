@@ -9,13 +9,14 @@ namespace RecipeGenius
 
         RecipeBook recipeBook = new RecipeBook();
         private List<string[]> userDataList;
+        
         private UserDataManager userDataManager;
 
         public Form1()
         {
             InitializeComponent();
             userDataManager = new UserDataManager();
-            userDataList = userDataManager.GetUserDataList();
+            userDataList = recipeBook.LoadRecipiesData();
             PopulateListBox();
         }
 

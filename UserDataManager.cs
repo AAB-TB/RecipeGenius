@@ -7,21 +7,21 @@ namespace RecipeGenius
     public class UserDataManager
     {
         RecipeBook recipeBook = new RecipeBook();
-        private List<string[]> userDataList;
+        private List<string[]> AdminDataList;
 
         public UserDataManager()
         {
-            userDataList = LoadUserData();
+            AdminDataList = LoadUserDat();
         }
 
         public List<string[]> GetUserDataList()
         {
-            return userDataList;
+            return AdminDataList;
         }
 
         public bool CheckUserCredentials(string enteredUserName, string enteredPassword)
         {
-            foreach (string[] user in userDataList)
+            foreach (string[] user in AdminDataList)
             {
                 if (user.Length == 2 && user[0] == enteredUserName && user[1] == enteredPassword)
                 {
@@ -31,7 +31,7 @@ namespace RecipeGenius
             return false;
         }
 
-        private List<string[]> LoadUserData()
+        private List<string[]> LoadUserDat()
         {
             List<string[]> data = new List<string[]>();
 
